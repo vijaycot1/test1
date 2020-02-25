@@ -1,0 +1,19 @@
+{
+  "mstUser": [
+    {
+      "userId": 1,
+      "Name": "BO",
+      "Password": "BO"
+    },
+    {
+      "userId": 2,
+      "Name": "HO",
+      "Password": "HO"
+    },
+    {
+      "userId": 3,
+      "Name": "Admin",
+      "Password": "Admin"
+    }
+  ]
+}

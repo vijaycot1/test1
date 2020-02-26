@@ -44,7 +44,6 @@ stages:
         includeLatestTag: true
         tags: |
           $(tag)
-    steps:
     - task: DockerCompose@0
       displayName: Push image to container registry
       inputs:

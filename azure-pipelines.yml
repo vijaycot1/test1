@@ -38,7 +38,7 @@ stages:
       inputs:
         command: buildAndPush
         repository: $(imageRepository)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        containerRegistry: $(containerRegistry)
         dockerComposeFile: 'docker-compose.yml'
         action: 'Build services'
         projectName: $(Build.Repository.Name)
@@ -50,7 +50,7 @@ stages:
       inputs:
         command: buildAndPush
         repository: $(imageRepository)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        containerRegistry: $(containerRegistry)
         dockerComposeFile: 'docker-compose.yml'
         action: 'Push services'
         projectName: $(Build.Repository.Name)

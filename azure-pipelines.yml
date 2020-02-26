@@ -41,9 +41,10 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         dockerComposeFile: 'docker-compose.yml'
         action: 'Build services'
+        projectName: $(Build.Repository.Name)
         includeLatestTag: true
-        tags: |
-          $(tag)
+        qualifyImageNames: true
+        additionalImageTags: $(Build.BuildId)
     - task: DockerCompose@0
       displayName: Push image to container registry
       inputs:
@@ -52,8 +53,10 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         dockerComposeFile: 'docker-compose.yml'
         action: 'Push services'
-        tags: |
-          $(tag)
+        projectName: $(Build.Repository.Name)
+        includeLatestTag: true
+        qualifyImageNames: true
+        additionalImageTags: $(Build.BuildId)
           
     - upload: manifests
       artifact: manifests

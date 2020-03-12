@@ -1,10 +1,20 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/home">Home</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
-    </div>
-</nav>
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <div class="navbar-nav">
+    <app-navbar></app-navbar>
+    <!--<button class="openbtn" [ngStyle]="{'marginleft':0}" (click)="toggle()">&#9776; </button>-->
+    <!--<a class="nav-item nav-link" [routerLink]="['/home']">Home</a>
+    <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav>-->
 
-Welcome!!!
+<!--<a [routerLink]="[{ outlets: { 'content': ['DoctorList'] } }]"> testlink</a>-->
+<!--<router-outlet name="navbar"></router-outlet>-->
+<!--<app-navbar [navbartogglestate]="isOpened" ></app-navbar>-->
+
+<!--<app-navbar (PathEmitter)="OnMenuSelection($event)"></app-navbar>-->
+<app-header
+ (logoutEvent)="logout($event)">
+</app-header>
+<router-outlet name="content"></router-outlet>
 
 

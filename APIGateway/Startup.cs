@@ -51,6 +51,13 @@
                     AutoRegisterTemplate = true,
                 })
             .CreateLogger();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                     builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
 
             services.AddAuthentication(x =>
             {
@@ -70,12 +77,15 @@
                };
            });
             services.AddOcelot(Configuration);
+
+        
         }
 
         [Obsolete]
         public async void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
              _logger.LogInformation("Inside Gateway Startup Configure");
+            app.UseCors("CorsPolicy");
             app.UseAuthentication();
             await app.UseOcelot();
            _logger.LogInformation("After configuring Ocelot Configuration file");

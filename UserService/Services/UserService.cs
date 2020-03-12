@@ -68,27 +68,34 @@ namespace MyAngular.Services
         public List<User> GetAll()
         {
             List<Models.User> lstUser = new List<Models.User>();
-            SqlConnection conn = new SqlConnection();
-            DataTable dataTable = new DataTable();
-            conn.ConnectionString = @"Server=tcp:zydusdatabase.database.windows.net,1433;Initial Catalog=Zydus2.0;Persist Security Info=False;User ID=zydusadmin;Password=P@ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            string sqlText = "Select * from mstUser";
-            SqlCommand sqlCmd = new SqlCommand(sqlText, conn);
+            User test = new User();
+            User test1 = new User();
+            test.Id = 1;test.Name = "Vijay";test.Password = "password";test.Username = "vijay";
+            lstUser.Add(test);
+            test1.Id = 2; test1.Name = "Shiv"; test1.Password = "password"; test1.Username = "shiv";
+            lstUser.Add(test1);
 
-            conn.Open();
-            SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
-            da.Fill(dataTable);
-            conn.Close();
-            da.Dispose();
+            //SqlConnection conn = new SqlConnection();
+            //DataTable dataTable = new DataTable();
+            //conn.ConnectionString = @"Server=tcp:zydusdatabase.database.windows.net,1433;Initial Catalog=Zydus2.0;Persist Security Info=False;User ID=zydusadmin;Password=P@ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            //string sqlText = "Select * from mstUser";
+            //SqlCommand sqlCmd = new SqlCommand(sqlText, conn);
 
-            for (int i = 0; i < dataTable.Rows.Count; i++)
-            {
-                Models.User user = new Models.User();
-                user.Id = Convert.ToInt32(dataTable.Rows[i]["Id"]);
-                user.Name = dataTable.Rows[i]["Name"].ToString();
-                user.Password = dataTable.Rows[i]["Password"].ToString();
-                user.Username = dataTable.Rows[i]["Username"].ToString();
-                lstUser.Add(user);
-            }
+            //conn.Open();
+            //SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
+            //da.Fill(dataTable);
+            //conn.Close();
+            //da.Dispose();
+
+            //for (int i = 0; i < dataTable.Rows.Count; i++)
+            //{
+            //    Models.User user = new Models.User();
+            //    user.Id = Convert.ToInt32(dataTable.Rows[i]["Id"]);
+            //    user.Name = dataTable.Rows[i]["Name"].ToString();
+            //    user.Password = dataTable.Rows[i]["Password"].ToString();
+            //    user.Username = dataTable.Rows[i]["Username"].ToString();
+            //    lstUser.Add(user);
+            //}
             return lstUser;
         }
 

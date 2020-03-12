@@ -24,9 +24,6 @@ export class AppComponent implements OnInit {
   }
   ngOnInit()
   {
-    // debugger;
-    // this.getValues();
-    // this.id=this.route.snapshot.params['ID'];
   }
 
   getValues()

@@ -25,9 +25,10 @@ namespace MyAngular.Controllers
         }
         
         List<Models.User> lstUser = new List<Models.User>();
-        
+
         // GET api/values
-        [HttpGet, Authorize]
+        [AllowAnonymous]
+        [HttpGet]
         public ActionResult<IEnumerable<Models.User>> Get()
         {
 

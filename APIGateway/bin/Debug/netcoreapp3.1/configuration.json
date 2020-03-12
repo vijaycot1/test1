@@ -1,19 +1,37 @@
 ﻿{
     "ReRoutes": [
-      
+
       {
         "DownstreamPathTemplate": "/api/Login",
         "DownstreamScheme": "http",
         "DownstreamHostAndPorts": [
           {
             "Host": "userservice",
-              "Port": "80"
-           
+            "Port": "80"
+
           }
         ],
         "UpstreamPathTemplate": "/Auth",
         "UpstreamHttpMethod": [ "Post" ]
-        
+
+      },
+      {
+        "DownstreamPathTemplate": "/api/Login",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "userservice",
+            "Port": "80"
+
+          }
+        ],
+        "UpstreamPathTemplate": "/Users",
+        "UpstreamHttpMethod": [ "Get" ],"AuthenticationOptions": {
+          "AuthenticationProviderKey": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS",
+          "AllowedScopes": []
+
+        }
+
       }
     ]
     

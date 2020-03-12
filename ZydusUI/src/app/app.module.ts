@@ -24,7 +24,10 @@ import { JwtService } from './Utilities/jwt-service';
 import { RouteGuard } from './Utilities/route-guard';
 import { ErrorInterceptor } from './Utilities/http-error-interceptor';
 import { HomeComponent } from './home/home.component';
-import {appRoutingModule} from './appRoutingModule'
+import {appRoutingModule} from './appRoutingModule';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HeaderComponent } from './header/header.component';
+import { DoctorlistComponent } from './doctorlist/doctorlist.component'
 
 
 
@@ -40,10 +43,11 @@ import {appRoutingModule} from './appRoutingModule'
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
-    
-    //AccountComponent,
-   // NewAccountComponent
+    HomeComponent,
+    NavbarComponent,
+    HeaderComponent,
+    DoctorlistComponent
+  
   ],
   
   imports: [
@@ -58,21 +62,21 @@ import {appRoutingModule} from './appRoutingModule'
     CalendarModule,
     ButtonsModule,
     ExcelExportModule,
-    ComboBoxModule//,
-    // JwtModule.forRoot({
-    //   config: {
-    //     tokenGetter: function  tokenGetter() {
-    //          return     localStorage.getItem('access_token');},
-    //     whitelistedDomains: ['localhost:5001'],
-    //    // blacklistedRoutes: ['http://localhost:3000/auth/login']
-    //   }
-    // })
+    ComboBoxModule,
+     JwtModule.forRoot({
+       config: {
+         tokenGetter: function  tokenGetter() {
+              return     localStorage.getItem('access_token');},
+         whitelistedDomains: ['localhost:5001'],
+        // blacklistedRoutes: ['http://localhost:5001/auth/login']
+       }
+     })
   ],
   
   
-  providers: [ApiService,JwtService,RouteGuard,
-    // { provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi: true },
-    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  providers: [JwtService,RouteGuard,
+     { provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi: true },
+     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

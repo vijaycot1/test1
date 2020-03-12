@@ -1,0 +1,15 @@
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <a [routerLink]="[{ outlets: { 'content': ['DoctorList'] } }]" (click)="closeNav()">DCR/BTP/TP/Inputs</a>
+  <a href="#">Relief Fund</a>
+  <a href="#">Salary Expense & Taxation</a>
+  <a href="#">Master Management</a>
+  <a href="#">Reports & Analytics</a>
+</div>
+
+
+
+<div id="main" style="margin-left:0">
+  <button class="openbtn" (click)="openNav()">&#9776; </button>
+
+</div>

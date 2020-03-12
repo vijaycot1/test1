@@ -1,7 +1,8 @@
 export class Login {
     
-    name: string;
-    password: string;
-    id:number;
-    username:string;
+    Name: string;
+    Password: string;
+    Id:number;
+  Username: string;
+  Token: string;
  }

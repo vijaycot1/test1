@@ -30,13 +30,9 @@ value:String[];
 
       this.http
       .get(API_URL)
-   
-      
       .subscribe((responseData:Login[])=>{
         debugger;
         this.apiValues=responseData;console.log(responseData)});
-
-     
      var check=this.apiValues;
      console.log(this.apiValues);
       return this.apiValues;

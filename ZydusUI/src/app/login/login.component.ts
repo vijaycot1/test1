@@ -54,8 +54,12 @@ export class LoginComponent implements OnInit {
                    
                 });
 
-      if(this.authenticationService.loggedIn==true) this.router.navigate(['/home']);
-      else this.router.navigate(['login']);
+    if (this.authenticationService.loggedIn == true) this.router.navigate(['/home']);
+    else {
+      
+      this.router.navigate(['login']);
+    }
+        
 
    }
 
